@@ -48,7 +48,7 @@ function PausePlaying() {
 function StartPlaying(title) {
   var iTunes = Application('iTunes')
   iTunes.launch()
-  iTunes.playlists["ライブラリ"].tracks[title].play()
+  iTunes.playlists[0].tracks[title].play()
   return GetCurrentTrack()
 }
 
