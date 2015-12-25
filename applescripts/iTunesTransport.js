@@ -116,7 +116,7 @@ function run(argv) {
   if (command === "currenttrack") {
     return GetCurrentTrack()
   } else if( command === "play") {
-    return StartPlaying(arav[1])
+    return StartPlaying(argv[1])
   } else if( command === "pause") {
     return PausePlaying()
   } else if( command === "stop") {
