@@ -16,14 +16,16 @@ var Playback = function() {
         var scriptRunner = this.isWindows ?
             spawn('cscript', ['//Nologo', scriptPath, command]) :
             spawn('osascript', [scriptPath, command]);
+            console.log(command)
         scriptRunner.stdout.on('data', function (data) {
             var result;
             try {
                 result = JSON.parse(data);
             } catch(e) {
+              console.log(e)
                 result = data;
             }
-
+            console.log(result)
             if (command === 'play') {
                 that.playing = result;
             }
@@ -80,8 +82,8 @@ var Playback = function() {
 };
 util.inherits(Playback, events.EventEmitter);
 
-Playback.prototype.play = function(callback) {
-    this.runTransportScript('play', callback);
+Playback.prototype.play = function(title, callback) {
+    this.runTransportScript('play ' + title, callback);
 };
 
 Playback.prototype.pause = function(callback) {

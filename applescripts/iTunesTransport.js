@@ -113,10 +113,12 @@ function FadeIn () {
 
 function run(argv) {
   var command = argv[0]
+
   if (command === "currenttrack") {
     return GetCurrentTrack()
-  } else if( command === "play") {
-    return StartPlaying(argv[1])
+  } else if( command.indexOf("play")===0 ) {
+    //console.log(argv[1])
+    return StartPlaying(command.replace("play ",""))
   } else if( command === "pause") {
     return PausePlaying()
   } else if( command === "stop") {
