@@ -45,10 +45,10 @@ function PausePlaying() {
   return JSON.stringify({ok: true})
 }
 
-function StartPlaying() {
+function StartPlaying(title) {
   var iTunes = Application('iTunes')
   iTunes.launch()
-  iTunes.play()
+  iTunes.playlists["ライブラリ"].tracks[title].play()
   return GetCurrentTrack()
 }
 
@@ -116,7 +116,7 @@ function run(argv) {
   if (command === "currenttrack") {
     return GetCurrentTrack()
   } else if( command === "play") {
-    return StartPlaying()
+    return StartPlaying(arav[1])
   } else if( command === "pause") {
     return PausePlaying()
   } else if( command === "stop") {
