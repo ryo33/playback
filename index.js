@@ -16,16 +16,13 @@ var Playback = function() {
         var scriptRunner = this.isWindows ?
             spawn('cscript', ['//Nologo', scriptPath, command]) :
             spawn('osascript', [scriptPath, command]);
-            console.log(command)
         scriptRunner.stdout.on('data', function (data) {
             var result;
             try {
                 result = JSON.parse(data);
             } catch(e) {
-              console.log(e)
                 result = data;
             }
-            console.log(result)
             if (command === 'play') {
                 that.playing = result;
             }

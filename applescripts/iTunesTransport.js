@@ -116,8 +116,7 @@ function run(argv) {
 
   if (command === "currenttrack") {
     return GetCurrentTrack()
-  } else if( command.indexOf("play")===0 ) {
-    //console.log(argv[1])
+  } else if( command.indexOf("play") === 0) {
     return StartPlaying(command.replace("play ",""))
   } else if( command === "pause") {
     return PausePlaying()
