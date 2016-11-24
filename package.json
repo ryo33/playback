@@ -1,5 +1,5 @@
 {
-  "name": "playback",
+  "name": "@ryo33/playback",
   "description": "Control the iTunes transport and receive track change events",
   "version": "0.2.0",
   "repository": {
